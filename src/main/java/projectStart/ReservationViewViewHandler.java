@@ -34,5 +34,17 @@ public class ReservationViewViewHandler {
             e.printStackTrace();
         }
     }
+    
+    @StreamListener(KafkaProcessor.INPUT)
+    public void whenReservationCanceled_then_DELETE_2(@Payload ReservationCanceled reservationCanceled) {
+        try {
+            if (reservationCanceled.isMe()) {
+                // view 레파지 토리에 삭제 쿼리
+                reservationViewRepository.deleteByCustomerId(reservationCanceled.getCustomerId());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
 }
