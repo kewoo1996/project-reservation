@@ -23,7 +23,12 @@ public class ReservationViewViewHandler {
     public void whenSeatCounted_then_UPDATE_1(@Payload SeatCounted seatCounted) {
         try {
             if (seatCounted.isMe()) {
-                // view 객체 조회
+                // view 객체 생성
+                ReservationView reservationView = new ReservationView();
+                // view 객체에 이벤트의 Value 를 set 함
+                reservationView.setCustomerId(seatCounted.getCustomerId());
+                // view 레파지 토리에 save
+                reservationViewRepository.save(reservationView);
             }
         }catch (Exception e){
             e.printStackTrace();
