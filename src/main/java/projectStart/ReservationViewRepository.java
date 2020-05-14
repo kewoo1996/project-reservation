@@ -7,6 +7,7 @@ import java.util.List;
 
 public interface ReservationViewRepository extends CrudRepository<ReservationView, Long> {
   
+  List<ReservationView> findByCustomerId(Long customerId);
   void deleteByCustomerId(Long customerId);
 
 }
