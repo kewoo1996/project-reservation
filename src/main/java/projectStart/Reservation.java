@@ -2,7 +2,6 @@ package projectStart;
 
 import javax.persistence.*;
 import org.springframework.beans.BeanUtils;
-import java.util.List;
 
 @Entity
 @Table(name="Reservation_table")
@@ -11,7 +10,7 @@ public class Reservation {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
-    private Long cutomerId;
+    private Long customerId;
 
     @PostPersist
     public void onPostPersist(){
@@ -39,12 +38,12 @@ public class Reservation {
     public void setId(Long id) {
         this.id = id;
     }
-    public Long getCutomerId() {
-        return cutomerId;
+    public Long getCustomerId() {
+        return customerId;
     }
 
-    public void setCutomerId(Long cutomerId) {
-        this.cutomerId = cutomerId;
+    public void setCustomerId(Long customerId) {
+        this.customerId = customerId;
     }
 
 
