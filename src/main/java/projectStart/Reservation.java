@@ -16,7 +16,7 @@ public class Reservation {
     public void onPostPersist(){
         Reserved reserved = new Reserved();
         BeanUtils.copyProperties(this, reserved);
-        reserved.publishAfterCommit();
+        reserved.publish();
 
     }
 
