@@ -18,7 +18,6 @@ public class Reservation {
         BeanUtils.copyProperties(this, reserved);
         reserved.publishAfterCommit();
 
-
     }
 
     @PostRemove
@@ -26,8 +25,7 @@ public class Reservation {
         ReservationCanceled reservationCanceled = new ReservationCanceled();
         BeanUtils.copyProperties(this, reservationCanceled);
         reservationCanceled.publishAfterCommit();
-
-
+   
     }
 
 
